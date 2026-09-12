@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Café — Digital Menu Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <div class="brand">MAISON CAFÉ</div>
+      <button class="cart-btn" onclick="openCart()">Cart <span id="cartCount">0</span></button>
+    </nav>
+    <div class="hero-content">
+      <p class="eyebrow">WELCOME TO MAISON CAFÉ</p>
+      <h1>Good food.<br>Good moments.</h1>
+      <p>Scan, order and enjoy — a simple digital menu experience.</p>
+      <a href="#menu" class="primary">Explore Menu</a>
+    </div>
+  </header>
+
+  <main id="menu">
+    <section class="intro">
+      <p class="eyebrow">OUR MENU</p>
+      <h2>Made fresh, served with care.</h2>
+      <p>Choose your favourites and add them to your order.</p>
+    </section>
+
+    <div class="categories">
+      <button class="active" onclick="filterMenu('all', this)">All</button>
+      <button onclick="filterMenu('coffee', this)">Coffee</button>
+      <button onclick="filterMenu('food', this)">Food</button>
+      <button onclick="filterMenu('dessert', this)">Desserts</button>
+    </div>
+
+    <section class="grid" id="menuGrid">
+      <article class="item" data-category="coffee">
+        <div class="item-image coffee">☕</div>
+        <div class="item-info">
+          <span class="tag">BESTSELLER</span>
+          <h3>Classic Cappuccino</h3>
+          <p>Rich espresso, steamed milk and silky foam.</p>
+          <div class="item-bottom"><strong>₹149</strong><button onclick="addToCart('Classic Cappuccino',149)">+ Add</button></div>
+        </div>
+      </article>
+
+      <article class="item" data-category="coffee">
+        <div class="item-image coffee">🥤</div>
+        <div class="item-info">
+          <h3>Iced Mocha</h3>
+          <p>Cold espresso, chocolate and creamy milk.</p>
+          <div class="item-bottom"><strong>₹179</strong><button onclick="addToCart('Iced Mocha',179)">+ Add</button></div>
+        </div>
+      </article>
+
+      <article class="item" data-category="food">
+        <div class="item-image food">🥪</div>
+        <div class="item-info">
+          <h3>Grilled Club Sandwich</h3>
+          <p>Toasted bread, vegetables, cheese and house sauce.</p>
+          <div class="item-bottom"><strong>₹229</strong><button onclick="addToCart('Grilled Club Sandwich',229)">+ Add</button></div>
+        </div>
+      </article>
+
+      <article class="item" data-category="food">
+        <div class="item-image food">🍝</div>
+        <div class="item-info">
+          <h3>Creamy Alfredo Pasta</h3>
+          <p>Fettuccine tossed in our creamy parmesan sauce.</p>
+          <div class="item-bottom"><strong>₹269</strong><button onclick="addToCart('Creamy Alfredo Pasta',269)">+ Add</button></div>
+        </div>
+      </article>
+
+      <article class="item" data-category="dessert">
+        <div class="item-image dessert">🍰</div>
+        <div class="item-info">
+          <span class="tag">POPULAR</span>
+          <h3>Chocolate Cheesecake</h3>
+          <p>New York-style cheesecake with chocolate topping.</p>
+          <div class="item-bottom"><strong>₹199</strong><button onclick="addToCart('Chocolate Cheesecake',199)">+ Add</button></div>
+        </div>
+      </article>
+
+      <article class="item" data-category="dessert">
+        <div class="item-image dessert">🍨</div>
+        <div class="item-info">
+          <h3>Vanilla Sundae</h3>
+          <p>Vanilla ice cream, caramel and crunchy nuts.</p>
+          <div class="item-bottom"><strong>₹159</strong><button onclick="addToCart('Vanilla Sundae',159)">+ Add</button></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <strong>MAISON CAFÉ</strong>
+    <p>Digital Menu Demo • Table 07</p>
+  </footer>
+
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+  <aside class="cart" id="cart">
+    <div class="cart-head">
+      <h2>Your Order</h2><button onclick="closeCart()">×</button>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <p class="empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-total"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+    <button class="checkout" onclick="checkout()">Place Demo Order</button>
+    <p class="demo-note">Demo only — no real payment is processed.</p>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
